@@ -21,4 +21,18 @@ describe('ReturnLedger app', () => {
     expect(within(source).getByLabelText(/SKU or ISBN/)).toBeRequired()
     expect(within(source).getByLabelText(/Quantity/)).toBeRequired()
   })
+
+  it('offers a prefilled pilot contact route with redacted-data guardrails', () => {
+    render(<App />)
+    const pilotLinks = screen.getAllByRole('link', { name: /Start a free 7-day pilot/ })
+    expect(pilotLinks).toHaveLength(2)
+    for (const link of pilotLinks) {
+      const href = decodeURIComponent(link.getAttribute('href') ?? '')
+      expect(href).toContain('mailto:kcapek46@gmail.com')
+      expect(href).toContain('ReturnLedger — free 7-day pilot')
+      expect(href).toContain('redacted operational data only')
+      expect(href).toContain('no customer or personal data')
+    }
+    expect(screen.getAllByText(/redacted operational data only/i).length).toBeGreaterThanOrEqual(2)
+  })
 })

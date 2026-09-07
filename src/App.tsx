@@ -10,6 +10,17 @@ import { reconcile } from './lib/reconcile'
 import type { ColumnMapping, CsvDataset, ReconciliationLine, ReconciliationStatus } from './types'
 
 const EURO = new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' })
+const PILOT_MAILTO = `mailto:kcapek46@gmail.com?subject=${encodeURIComponent('ReturnLedger — free 7-day pilot')}&body=${encodeURIComponent(`Hi,
+
+I'd like to start a free 7-day ReturnLedger pilot.
+
+Business type:
+Approximate return claims per month:
+Main supplier credit issue:
+
+I understand the pilot uses redacted operational data only, with no customer or personal data.
+
+Thanks!`)}`
 
 const statusLabels: Record<ReconciliationStatus, string> = {
   matched: 'Matched',
@@ -364,8 +375,11 @@ function App() {
             <span className="price-label">ONE PLAN. EVERYTHING INCLUDED.</span>
             <div className="price"><sup>€</sup><strong>20</strong><span>/ month</span></div>
             <p>For one business, with every feature.</p>
-            <button className="button primary large" type="button" onClick={scrollToDemo}>Try the working demo <Icon name="arrow" /></button>
-            <small>No payment flow in this early MVP</small>
+            <div className="price-actions">
+              <a className="button light large" href={PILOT_MAILTO}>Start a free 7-day pilot <Icon name="arrow" /></a>
+              <button className="button price-demo" type="button" onClick={scrollToDemo}>Try the working demo</button>
+            </div>
+            <small>Pilots use redacted operational data only — never customer or personal data.</small>
           </div>
         </section>
 
@@ -380,7 +394,7 @@ function App() {
         </section>
 
         <section className="final-cta">
-          <div><span className="eyebrow">See it for yourself</span><h2>Your next credit memo<br />takes <em>two minutes.</em></h2><p>Load the included example or bring two CSV exports of your own.</p><button className="button light large" type="button" onClick={scrollToDemo}>Open the reconciler <Icon name="arrow" /></button></div>
+          <div><span className="eyebrow">See it for yourself</span><h2>Your next credit memo<br />takes <em>two minutes.</em></h2><p>Load the included example or bring two CSV exports of your own.</p><div className="final-actions"><a className="button light large" href={PILOT_MAILTO}>Start a free 7-day pilot <Icon name="arrow" /></a><button className="button ghost-light large" type="button" onClick={scrollToDemo}>Open the reconciler</button></div><small className="pilot-privacy">Early pilots use redacted operational data only — no customer or personal data.</small></div>
         </section>
       </main>
 

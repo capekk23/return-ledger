@@ -48,6 +48,8 @@ nav a:hover { color: var(--green); }
 .button.primary:hover { background: var(--green-dark); box-shadow: 0 11px 24px rgba(20, 107, 88, .25); }
 .button.secondary { color: var(--green); background: #eff6f1; border: 1px solid #d7e6dd; box-shadow: none; }
 .button.light { background: #f8f2e7; color: var(--green-dark); }
+.button.ghost-light { color: white; border: 1px solid rgba(255,255,255,.45); background: rgba(255,255,255,.07); box-shadow: none; }
+.button.ghost-light:hover { background: rgba(255,255,255,.14); }
 .button.large { min-height: 54px; padding: 0 26px; border-radius: 13px; font-size: 15px; }
 .button.compact { min-height: 38px; padding: 0 14px; font-size: 12px; }
 
@@ -197,7 +199,9 @@ td:first-child span { margin-top: 2px; color: #84928e; font-size: 9px; white-spa
 .price strong { font-family: Georgia, serif; font-size: 76px; line-height: .8; }
 .price span { align-self: flex-end; margin-left: 8px; opacity: .7; font-size: 12px; }
 .price-card p { color: rgba(255,255,255,.7); font-size: 12px; }
-.price-card .button { position: relative; z-index: 1; width: 100%; margin-top: 20px; color: var(--green-dark); background: #f3e9d6; }
+.price-actions { position: relative; z-index: 1; display: grid; gap: 9px; margin-top: 20px; }
+.price-card .button { width: 100%; color: var(--green-dark); background: #f3e9d6; }
+.price-card .button.price-demo { min-height: 41px; color: rgba(255,255,255,.88); border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.07); box-shadow: none; }
 .price-card > small { display: block; margin-top: 13px; text-align: center; opacity: .55; font-size: 9px; }
 
 .faq { padding-top: 40px; }
@@ -213,7 +217,8 @@ td:first-child span { margin-top: 2px; color: #84928e; font-size: 9px; white-spa
 .final-cta h2 { margin: 15px 0; color: white; font-size: clamp(40px, 4.5vw, 59px); }
 .final-cta h2 em { color: #d9eadf; }
 .final-cta p { color: rgba(255,255,255,.67); }
-.final-cta .button { margin-top: 16px; }
+.final-actions { margin-top: 22px; display: flex; justify-content: center; gap: 10px; }
+.pilot-privacy { display: block; margin-top: 13px; color: rgba(255,255,255,.58); font-size: 10px; }
 footer { width: min(1120px, calc(100% - 48px)); margin: auto; padding: 0 0 46px; display: flex; align-items: flex-end; justify-content: space-between; }
 footer > div:first-child p { margin: 13px 0 0; font-size: 11px; }
 footer > div:last-child { display: flex; gap: 24px; color: #82918c; font-size: 10px; }
@@ -271,6 +276,7 @@ footer > div:last-child { display: flex; gap: 24px; color: #82918c; font-size: 1
   .faq { padding-top: 20px; }
   .faq-grid { grid-template-columns: 1fr; }
   .final-cta { width: calc(100% - 32px); margin-bottom: 60px; padding: 65px 22px; }
+  .final-actions { align-items: stretch; flex-direction: column; }
   footer { align-items: flex-start; flex-direction: column; gap: 25px; }
   footer > div:last-child { flex-direction: column; gap: 7px; }
 }
