@@ -4,6 +4,8 @@ ReturnLedger is a privacy-first reconciliation tool for small wholesalers, distr
 
 The MVP is a static React application: CSV files never leave the browser, and the deterministic core requires no API key, account, backend, or paid AI service.
 
+**Live demo:** <https://capekk23.github.io/return-ledger/>
+
 ## Features
 
 - Interactive landing page and working sample reconciliation
@@ -72,7 +74,11 @@ Then open <http://localhost:8080>.
 
 ### Other static hosts
 
-Run `npm ci && npm run build` and publish `dist/`. This works on Cloudflare Pages, Netlify, Vercel, GitHub Pages, or any static web server. No runtime secrets are required.
+Run `npm ci && npm run build` and publish `dist/`. The default build uses `/return-ledger/` as its asset base for GitHub Pages. Set `base` in `vite.config.ts` to `/` when deploying at the root of a custom domain. No runtime secrets are required.
+
+### GitHub Pages
+
+The workflow in `.github/workflows/deploy-pages.yml` builds and deploys `main` automatically. In repository **Settings → Pages**, select **GitHub Actions** as the source. The deployment is available at <https://capekk23.github.io/return-ledger/>.
 
 ## Privacy and AI
 
